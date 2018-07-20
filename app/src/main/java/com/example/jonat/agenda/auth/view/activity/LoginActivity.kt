@@ -52,8 +52,10 @@ class LoginActivity : AppCompatActivity() {
         botaoLogin.setOnClickListener{view ->
             Log.d("tag", "onclik")
             AuthBusiness.efetuarLogin(editTextEmail.text.toString(), editTextSenha.text.toString(), {
+
                 telaContatos(it.id!!)
-                Snackbar.make(view, "Login feito", Snackbar.LENGTH_SHORT).show()
+
+                //Snackbar.make(view, "Login feito", Snackbar.LENGTH_SHORT).show()
 
             }, {
                 Snackbar.make(view, "Conta não existe!", Snackbar.LENGTH_SHORT).show()
@@ -64,17 +66,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun telaContatos(id : Int){
+
         val extraBundle = Bundle()
 
 
         extraBundle.putInt("id", id)
 
+
         val intentContatosActivity = Intent(this, ContatosActivity::class.java)
         intentContatosActivity.putExtras(extraBundle)
-
-
-
-
 
 
         startActivity(intentContatosActivity)

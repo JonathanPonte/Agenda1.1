@@ -3,7 +3,7 @@ package com.example.jonat.agenda.auth.agenda.contatos.module
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-class Contato : RealmObject(){
+open class Contato : RealmObject(){
 
 
     @PrimaryKey var id : Int? = null

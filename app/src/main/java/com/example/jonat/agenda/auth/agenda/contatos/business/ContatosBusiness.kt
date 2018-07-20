@@ -7,21 +7,25 @@ import com.example.jonat.agenda.auth.agenda.contatos.network.ContatoNetwork
 object ContatosBusiness {
 
 
-    fun lisatarContatos(uid : String, client: String , accesstoken: String, onSuccess: () -> Unit, onError: () -> Unit){
+    fun lisatarContatos(id : Int, onSuccess: () -> Unit, onError: () -> Unit){
 
-        ContatoNetwork.listarContatos(uid, client, accesstoken, {contatos ->
-            ContatoDataBase.salvarContatos(contatos){
+        ContatoDataBase.recuperarUsuario(id){
+
+            ContatoNetwork.listarContatos(it.uid.toString(), it.client.toString(), it.acessToken.toString(), {contatos ->
+                ContatoDataBase.salvarContatos(contatos){
 
 
 
-            }
+                }
 
-        }, {
+            }, {
 
-            onError()
+                onError()
 
-        })
+            })
 
+
+        }
 
 
     }

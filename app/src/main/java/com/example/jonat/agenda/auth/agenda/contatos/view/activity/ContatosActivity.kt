@@ -18,9 +18,11 @@ class ContatosActivity: AppCompatActivity() {
         Realm.init(this)
 
 
-        //var id = intent.getIntExtra("id", 0)
+        var id = intent.getIntExtra("id", 0)
 
 
+
+        salvarContatos(id)
 
 
 
@@ -28,9 +30,10 @@ class ContatosActivity: AppCompatActivity() {
 
 
 
-    fun listarContatos(uid : String, client : String, accessToken : String, onSuccess: () -> Unit){
+    fun salvarContatos(id : Int){
 
-        ContatosBusiness.lisatarContatos(uid, client, accessToken, {
+
+        ContatosBusiness.lisatarContatos(id, {
 
 
 

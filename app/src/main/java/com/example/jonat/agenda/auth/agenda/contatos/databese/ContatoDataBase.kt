@@ -1,6 +1,7 @@
 package com.example.jonat.agenda.auth.agenda.contatos.databese
 
 import com.example.jonat.agenda.auth.agenda.contatos.module.Contato
+import com.example.jonat.agenda.auth.module.User
 import io.realm.Realm
 
 object ContatoDataBase {
@@ -19,6 +20,31 @@ object ContatoDataBase {
 
 
     }
+
+
+
+    fun recuperarUsuario(id : Int, onSuccess: (user : User) -> Unit){
+
+
+
+            val realm = Realm.getDefaultInstance()
+
+            val usuario = realm.where(User::class.java).equalTo("id", id).findFirst()
+
+            usuario?.let {
+
+
+                onSuccess(it)
+
+
+            }
+
+
+
+    }
+
+
+
 
 
 

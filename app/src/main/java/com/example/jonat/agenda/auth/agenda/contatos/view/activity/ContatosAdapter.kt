@@ -25,23 +25,6 @@ class ContatosAdapter: RecyclerView.Adapter<ContatosViewHolder>() {
 
 
 
-    fun listarContatos(uid : String, client : String, accessToken : String, onSuccess: () -> Unit){
-
-        ContatosBusiness.lisatarContatos(uid, client, accessToken, {
-
-
-
-
-
-        },{
-
-
-        })
-
-
-
-
-    }
 
 
 
